@@ -8,14 +8,19 @@
  */
 
 
+require 'vendor/autoload.php';
+
+use Phpdev\Staff;
+use Phpdev\Business;
+use Phpdev\Person;
 
 $alex = new Person('Alex');
 $peter = new Person('Peter');
 $adam = new Person('Adam');
 
-$dpStaffStart = new Staff([$peter, $adam]);
+$dpStaffStart = new Phpdev\Staff([$peter, $adam]);
 
-$dp = new Business($dpStaffStart);
+$dp = new Phpdev\Business($dpStaffStart);
 $dp->hire($alex);
 
 $dpStaff =  $dp->getStaff();

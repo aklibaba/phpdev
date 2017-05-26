@@ -1,5 +1,7 @@
 <?php
 
+namespace Phpdev;
+
 /**
  * Created by PhpStorm.
  * User: Aleksander
