@@ -9,4 +9,5 @@
 
 $users = $app['database']->selectAll('Users', 'Phpdev\User');
 
+/** @noinspection PhpIncludeInspection */
 require 'views/index.view.php';

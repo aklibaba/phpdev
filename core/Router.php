@@ -16,7 +16,8 @@ class Router
   public static function load($file)
   {
     $router = new static;
-    require $file;
+	  /** @noinspection PhpIncludeInspection */
+	  require $file;
 
     return $router;
   }
