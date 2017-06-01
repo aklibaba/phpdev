@@ -1,4 +1,5 @@
 <?php
+
 namespace core;
 /**
  * Created by PhpStorm.
@@ -11,6 +12,15 @@ class Request
 
   public static function uri()
   {
-    return trim($_SERVER['REQUEST_URI'], '/');
+
+    echo trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+    return trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
+
+  }
+
+  public static function method()
+  {
+    return $_SERVER['REQUEST_URI'];
   }
 }

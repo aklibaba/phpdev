@@ -1,21 +1,20 @@
 <?php require 'views/partials/head.php'; ?>
 
+<form action="names" method="post">
+    <input type="text" name="name">
+    <button type="submit">Submit</button>
+</form>
 <ul>
 
   <?php
 
   /** @var User[] $users */
   foreach($users as $user) : ?>
-  <li>
+      <li>
       <?= $user->last_name ?>
   </li>
   <? endforeach; ?>
 
 </ul>
-
-<form action="/" method="get">
-
-
-</form>
 
 <?php require 'views/partials/footer.php'; ?>

@@ -7,8 +7,14 @@ require 'vendor/autoload.php';
  * @var QueryBuilder $query
  */
 require 'core/bootstrap.php';
-//
-//
+
+try {
+
 require core\Router::load('routes.php')
-  ->direct(core\Request::uri());
+  ->direct(
+    core\Request::uri(),
+    core\Request::method());
+} catch(Exception $e) {
+  require 'views/404.php';
+}
 

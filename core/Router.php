@@ -8,33 +8,40 @@ namespace core;
  */
 class Router
 {
-  protected $routes = [];
-
-  public function define($routes)
-  {
-    $this->routes = $routes;
-  }
+  protected $routes = [
+    'GET' => [],
+    'POST' => []
+  ];
 
   public static function load($file)
   {
     $router = new static;
-    $routes = require $file;
-    $router->define($routes);
+    require $file;
 
     return $router;
   }
 
+  public function get($uri, $controller)
+  {
+    $this->routes['GET'][$uri] = $controller;
+  }
+
+  public function post($uri, $controller)
+  {
+    $this->routes['POST'][$uri] = $controller;
+  }
+
   /**
    * @param string $uri
+   * @param string $requestMethod
    * @throws \Exception
    * @return string
    */
-  public function direct($uri)
+  public function direct($uri, $requestMethod)
   {
-    if (! array_key_exists($uri, $this->routes)) {
+    if (! array_key_exists($uri, $this->routes[$requestMethod])) {
       throw new \Exception("no route defined for this uri");
-      require '404.php';
     }
-    return $this->routes[$uri];
+    return $this->routes[$requestMethod][$uri];
   }
 }

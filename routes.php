@@ -1,14 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Aleksander
- * Date: 2017-05-25
- * Time: 09:51
+ * @var \core\Router $router
  */
-return [
-  '' => 'controllers/index.php',
-  'about' => 'controllers/about.php',
-  'about/culture' => 'controllers/about-culture.php',
-  'contact' => 'controllers/contact.php'
-
-];
+$router->get('', 'controllers/index.php');
+$router->get('about', 'controllers/about.php');
+$router->get('about/culture', 'controllers/about-culture.php');
+$router->get('contact', 'controllers/contact.php');
+$router->post('names', 'controllers/add-name.php');
