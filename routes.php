@@ -5,13 +5,10 @@
  * Date: 2017-05-25
  * Time: 09:51
  */
+return [
+  '' => 'controllers/index.php',
+  'about' => 'controllers/about.php',
+  'about/culture' => 'controllers/about-culture.php',
+  'contact' => 'controllers/contact.php'
 
-$router->define(
-  [
-    'phpdev' => 'controllers/index.php',
-    'phpdev/about' => 'controllers/about.php',
-    'phpdev/about/culture' => 'controllers/about-culture.php',
-    'phpdev/contact' => 'controllers/contact.php'
-
-  ]
-  );
+];

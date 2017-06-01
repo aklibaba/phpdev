@@ -7,6 +7,6 @@
  */
 
 
-$users = $query->selectAll('Users', 'User');
+$users = $app['database']->selectAll('Users', 'Phpdev\User');
 
 require 'views/index.view.php';

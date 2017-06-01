@@ -1,4 +1,5 @@
-  <?php
+<?php
+namespace core\database;
 
 /**
  * Created by PhpStorm.
@@ -13,15 +14,15 @@ class Connection
   {
     try
     {
-      return new PDO(
+      return new \PDO(
         $config['connection'] . ';dbname=' . $config['name'],
         $config['username'],
         $config['password'],
         $config['options']
       );
-    } catch(PDOException $e)
+    } catch(\PDOException $e)
     {
-       die($e->getMessage());
+      die($e->getMessage());
     }
 
   }

@@ -1,4 +1,8 @@
 <?php
+namespace core;
+$app = [];
+$app['config'] = require 'config.php';
+
 /**
  * Created by PhpStorm.
  * User: Aleksander
@@ -6,18 +10,15 @@
  * Time: 12:37
  */
 
-require 'core/database/Connection.php';
-require 'core/database/QueryBuilder.php';
-require 'core/Router.php';
-require 'User.php';
+//require 'core/database/Connection.php';
+//require 'core/database/QueryBuilder.php';
+//require 'core/Router.php';
+//require 'User.php';
 
 /**
  * @var array $config an array containing database connection data
  */
-$config = require 'config.php';
 
-
-
-return new QueryBuilder(
-  Connection::make($config['database'])
+$app['database'] = new database\QueryBuilder(
+  database\Connection::make($app['config']['database'])
 );

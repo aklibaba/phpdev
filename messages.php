@@ -10,25 +10,23 @@
 
 require 'vendor/autoload.php';
 
-use Phpdev\Staff;
-use Phpdev\Business;
-use Phpdev\Person;
+use Phpdev\Business, Phpdev\Person, Phpdev\Staff;
 
-$alex = new Person('Alex');
-$peter = new Person('Peter');
-$adam = new Person('Adam');
+$alex  = new Person( 'Alex' );
+$peter = new Person( 'Peter' );
+$adam  = new Person( 'Adam' );
 
-$dpStaffStart = new Phpdev\Staff([$peter, $adam]);
+$dpStaffStart = new Staff( [ $peter, $adam ] );
 
-$dp = new Phpdev\Business($dpStaffStart);
-$dp->hire($alex);
+$dp = new Business( $dpStaffStart );
+$dp->hire( $alex );
 
-$dpStaff =  $dp->getStaff();
+$dpStaff = $dp->getStaff();
 
-var_dump($dpStaffStart);
+var_dump( $dpStaffStart );
 
-foreach($dpStaff as $employee):?>
+foreach ( $dpStaff as $employee ):?>
 
-<li><?php echo $employee?></li>
+    <li><?php echo $employee ?></li>
 
-<?endforeach;?>
+<? endforeach; ?>

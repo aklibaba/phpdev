@@ -1,5 +1,5 @@
 <?php
-
+namespace core;
 /**
  * Created by PhpStorm.
  * User: Aleksander
@@ -18,20 +18,21 @@ class Router
   public static function load($file)
   {
     $router = new static;
-    require $file;
+    $routes = require $file;
+    $router->define($routes);
 
     return $router;
   }
 
   /**
    * @param string $uri
-   * @throws Exception
+   * @throws \Exception
    * @return string
    */
   public function direct($uri)
   {
     if (! array_key_exists($uri, $this->routes)) {
-      throw new Exception("no route defined for this uri");
+      throw new \Exception("no route defined for this uri");
       require '404.php';
     }
     return $this->routes[$uri];

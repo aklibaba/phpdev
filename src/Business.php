@@ -1,5 +1,4 @@
 <?php
-
 namespace Phpdev;
 
 /**
@@ -24,7 +23,7 @@ class Business
     $this->staff = $staff;
   }
 
-  public function hire(Person $person)
+  public function hire(Users\Person $person)
   {
     $this->staff->add($person);
   }

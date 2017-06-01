@@ -1,6 +1,7 @@
 <?php
 
 namespace Phpdev;
+use Phpdev\Users\Person;
 
 /**
  * Created by PhpStorm.

@@ -1,4 +1,5 @@
 <?php
+namespace core\database;
 
 /**
  * Created by PhpStorm.
@@ -15,7 +16,7 @@ class QueryBuilder
    * QueryBuilder constructor.
    * @param $pdo
    */
-  public function __construct(PDO $pdo)
+  public function __construct(\PDO $pdo)
   {
     $this->pdo = $pdo;
 
@@ -32,7 +33,7 @@ class QueryBuilder
     $statement = $this->pdo->prepare("SELECT * FROM {$table}");
     $statement->execute();
 
-    return $statement->fetchAll(PDO::FETCH_CLASS, $intoClass);
+    return $statement->fetchAll(\PDO::FETCH_CLASS, $intoClass);
   }
 
 

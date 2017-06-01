@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'core\\' => array($baseDir . '/core'),
     'Phpdev\\' => array($baseDir . '/src'),
 );

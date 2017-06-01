@@ -1,4 +1,5 @@
 <?php
+namespace Phpdev;
 
 /**
  * Created by PhpStorm.

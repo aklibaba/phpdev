@@ -1,7 +1,2 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Aleksander
- * Date: 2017-05-25
- * Time: 09:48
- */
+<?php require 'views/partials/head.php'; ?>
+<?php require 'views/partials/footer.php'; ?>
