@@ -6,4 +6,5 @@
  * Time: 09:47
  */
 
+/** @noinspection PhpIncludeInspection */
 require 'views/contact.view.php';

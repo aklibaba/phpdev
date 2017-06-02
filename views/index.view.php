@@ -1,4 +1,5 @@
-<?php require 'views/partials/head.php'; ?>
+<?php /** @noinspection PhpIncludeInspection */
+require 'views/partials/head.php'; ?>
 
 <form action="names" method="post">
     <input type="text" name="name">
@@ -17,4 +18,5 @@
 
 </ul>
 
-<?php require 'views/partials/footer.php'; ?>
+<?php /** @noinspection PhpIncludeInspection */
+require 'views/partials/footer.php'; ?>

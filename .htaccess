@@ -9,8 +9,12 @@ Order allow,deny
 Deny from all
 </Files>
 
-<Files ~ "index\.php$">
+<Files "es6-practice.php">
 Order allow,deny
 Allow from all
 </Files>
 
+<Files "index.php">
+Order allow,deny
+Allow from all
+</Files>
