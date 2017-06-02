@@ -1,4 +1,5 @@
 <?php
+
 namespace core\database;
 
 /**
@@ -34,6 +35,22 @@ class QueryBuilder
     $statement->execute();
 
     return $statement->fetchAll(\PDO::FETCH_CLASS, $intoClass);
+  }
+
+  public function insert($table, $params)
+  {
+    // insert into %s (%s) values (:first_name, :last_name)
+
+    $sql = sprintf(
+      "INSERT INTO %s (%s) VALUES (%s)",
+      $table,
+      implode(", ", array_keys($params)),
+      ":" . implode(", :", array_keys($params))
+    );
+
+    $statement = $this->pdo->prepare($sql);
+
+    $statement->execute($params);
   }
 
 

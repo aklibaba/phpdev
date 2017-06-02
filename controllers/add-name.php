@@ -1,3 +1,5 @@
+<?php /** @noinspection PhpIncludeInspection */
+require 'views/partials/head.php'; ?>
 <?php
 /**
  * Created by PhpStorm.
@@ -6,4 +8,13 @@
  * Time: 11:44
  */
 
-var_dump($_POST);
+/**
+ * @var core\database\QueryBuilder $app['database']
+ */
+$app['database']->insert('Users', [
+  'first_name' => $_POST['first_name'],
+  'last_name' => $_POST['last_name'],
+  'age' => $_POST['age'],
+]);
+
+header('Location: /');

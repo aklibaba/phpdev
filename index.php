@@ -1,5 +1,5 @@
 <?php
-define ('ROOT_DIR', __DIR__ . '/');
+define('ROOT_DIR', __DIR__ . '/');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -10,14 +10,16 @@ require 'vendor/autoload.php';
  */
 require 'core/bootstrap.php';
 
-try {
+try
+{
 
-	/** @noinspection PhpIncludeInspection */
-	require core\Router::load('routes.php')
-	                   ->direct(
-    core\Request::uri(),
-    core\Request::method());
-} catch(Exception $e) {
+  /** @noinspection PhpIncludeInspection */
+  require core\Router::load('routes.php')
+    ->direct(
+      core\Request::uri(),
+      core\Request::method());
+} catch(Exception $e)
+{
   require 'views/404.php';
 }
 
