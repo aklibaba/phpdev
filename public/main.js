@@ -56,8 +56,8 @@ var products = [
 
 var onlyVegs = products.filter(function (p1, p2, p3) {
   return p1['type'] === "vegetable" &&
-  p1['quantity'] > 0 &&
-  p1['price'] < 40
+    p1['quantity'] > 0 &&
+    p1['price'] < 40
 });
 
 function logItems(array) {
@@ -66,3 +66,107 @@ function logItems(array) {
   })
 }
 logItems(onlyVegs);
+
+let device_id = '12432';
+let guid = 'ascg';
+const username = 'alexos';
+
+const data = `{
+"device_id" : ${device_id},
+"guid" : "${guid}",
+"username" : "${username}"
+}`;
+
+jsonData = JSON.parse(data);
+
+console.log(jsonData);
+
+//code for arrow functions
+
+const add = (a, b) => a + b;
+
+
+const double = number => 2 * number;
+console.log(double(1));
+
+
+let doubledNumbersArr = numbers.map(number => 2 * number);
+
+console.log(doubledNumbersArr);
+
+const team = {
+  members: ['Jane', 'Bill'],
+  teamName: "DP Team",
+  teamSummary: function () {
+    return this.members.map(member => `${member} is on team ${this.teamName}`)
+  }
+};
+
+let teamSummaryArr = team.teamSummary();
+
+// console.log(teamSummaryArr);
+
+function createBookshop(inventory) {
+  return {
+    inventory,
+    inventoryValue () {
+      return this.inventory.reduce((accum, curr) => {
+        return accum + curr.price;
+      }, 0);
+    },
+    priceForTitle (title) {
+      const searchedBook = this.inventory.find( book => book.title === title);
+
+      if(searchedBook) return searchedBook.price;
+      else return 'no such book found';
+    }
+  }
+}
+
+const inventory = [
+  {"title": 'Harry Potter', price: 10},
+  {"title": 'ES6 Practice', price: 16},
+];
+
+const bookShop = createBookshop(inventory);
+console.log(bookShop.inventoryValue());
+console.log(bookShop.priceForTitle('Harry Potter'));
+
+// function saveFile(url, data) {
+//   $.ajax({
+//     method: 'POST',
+//     url,
+//     data
+//   });
+// }
+
+const url = "http://fileupload.com";
+// saveFile(url, data);
+
+//code for default function arguments
+
+function makeAjaxRequest(url, method = 'GET') {
+
+  return method;
+  //logic to make the request
+
+}
+
+console.log(makeAjaxRequest('google.com', null));
+
+function User(id) {
+  this.id = id;
+}
+
+function generateId() {
+  return Math.random() * 9999990;
+}
+
+function createAdminUser(user = new User(generateId())) {
+  user.admin = true;
+
+  return user;
+}
+
+user1 = createAdminUser();
+console.log(user1);
