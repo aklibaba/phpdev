@@ -115,9 +115,9 @@ function createBookshop(inventory) {
       }, 0);
     },
     priceForTitle (title) {
-      const searchedBook = this.inventory.find( book => book.title === title);
+      const searchedBook = this.inventory.find(book => book.title === title);
 
-      if(searchedBook) return searchedBook.price;
+      if (searchedBook) return searchedBook.price;
       else return 'no such book found';
     }
   }
@@ -170,3 +170,174 @@ function createAdminUser(user = new User(generateId())) {
 
 user1 = createAdminUser();
 console.log(user1);
+
+//code for rest and spread
+
+
+//rest
+function addNumbers(...numbers) {
+  return numbers.reduce((accum, curr) => accum + curr);
+}
+
+// let addedNumbers = addNumbers([1,2,3,4,5,6]);
+
+// console.log(addedNumbers);
+
+const defaultColors = ['red', 'green'];
+const userFavouriteColors = ['orange', 'yellow'];
+
+const jointColors = ['green', ...defaultColors, 'blue', ...userFavouriteColors];
+
+console.log(jointColors);
+
+const jointColors2 = addNumbers(userFavouriteColors);
+
+function validateShoppingList(...items) {
+  if (items.find(item => item === 'milk')) {
+    return items;
+  } else {
+    return [...items, 'milk'];
+  }
+}
+
+console.log(validateShoppingList('oranges', 'bread', 'milk'));
+
+const MathLibrary = {
+  calculateproduct(...rest) {
+    // console.log('please use the multiply method');
+    return this.multiply(...rest);
+  },
+  multiply(...rest) {
+    return rest.reduce((accum, curr) => accum * curr, 1)
+  },
+
+};
+
+console.log(MathLibrary.calculateproduct(2, 3));
+
+//code for destructuring
+
+//ES5
+
+
+// var type = expense.type;
+// var amount = expense.amount;
+
+//ES6
+const expense = {
+  typeOfBusiness: 'Business',
+  amount: '45PLN'
+};
+
+const {typeOfBusiness, amount} = expense;
+console.log(typeOfBusiness);
+console.log(amount);
+
+//ES5
+var savedFile = {
+  extension: 'jpg',
+  name: 'repost',
+  size: 14098
+};
+
+function fileSummary({name, extension, size}) {
+  return `The file ${name}.${extension} is of size ${size}`;
+}
+
+console.log(fileSummary(savedFile));
+
+
+const techCompanies = [
+  'Google',
+  'Facebbok',
+  'Companies'
+];
+
+const [comp1, , comp2, ...rest] = techCompanies;
+
+console.log(comp1);
+console.log(comp2);
+console.log(rest);
+
+
+function logCompanies([first, second, third]) {
+
+}
+
+let arrayOfCompanies = [
+  {name: 'Google', city: 'Mountain View'},
+  {name: 'Facebook', city: 'Menlo Park'},
+  {name: 'Uber', city: 'Downtown San Francisco'},
+];
+
+// var location = arrayOfCompanies[0].location;
+
+const [{city: alexCity}] = arrayOfCompanies;
+console.log('alexCity' + alexCity);
+
+const Google = {
+  locations: [
+    'Mountain View',
+    'New York',
+    'London'
+  ]
+};
+
+
+// const [{locations}] = Google;
+// const [cityOfComp] = googleLocations;
+
+// console.log(locations);
+
+function signUp({username = 'alex', password, email, dateOfBirth, city}) {
+  console.log(username);
+}
+
+//lots of other code
+
+var o = {p: 42, q: true};
+var {p: alex, q: lukasz} = o;
+console.log(alex);
+console.log(lukasz);
+
+
+const user = {
+  password: '123QWEasd',
+  email: 'alejandro.moloniewicz@gmail.com',
+  dateOfBirth: '1987-06-05',
+  city: 'Warsaw'
+};
+
+signUp(user);
+
+const points = [
+  [4, 5],
+  [10, 1],
+  [0, 40]
+];
+
+
+const coords = points.map(([x, y]) => {
+  return {x, y}
+});
+
+const [[x, y]] = points;
+console.log(coords);
+
+const numbers1 = [1, 2, 4];
+
+
+function double2(numbersArr) {
+  const [number, ...rest] = numbersArr;
+  if (!number) {
+    return [];
+  }
+
+  return [number * 2, ...double2(rest)];
+}
+
+console.log(double2(numbers1));
+
+let emptyArr = [];
+const test = [1, ...emptyArr];
+console.log(test);
