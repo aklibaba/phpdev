@@ -414,10 +414,10 @@ console.log(toyota.driver);
 const colors3 = ['red', 'green', 'blue'];
 
 for (let color of colors3) {
- console.log(color);
+  console.log(color);
 }
 
-const numbers4 = [1,2,5,6];
+const numbers4 = [1, 2, 5, 6];
 
 let total4 = 0;
 for (let number of numbers4) {
@@ -432,3 +432,25 @@ console.log(total4);
 // }
 
 // console.log(numbers3());
+
+//promises
+
+const resolver = (resolve, reject) => {
+  console.log('first statement in promise');
+  setTimeout(() => reject('alex'), 3000);
+  console.log('second statement in promise');
+
+
+};
+
+// const promise = new Promise(resolver);
+//
+// promise
+//   .then((value) => console.log(`promise resolved with ${value}`))
+//   .then((value) => console.log('I was also ran'))
+//   .catch((value) => console.log('something went wrong', value));
+
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  .then(data => console.log(data) );

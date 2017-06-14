@@ -1,46 +1,20 @@
 'use strict';
 
-var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _getIterator3 = _interopRequireDefault(_getIterator2);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _get2 = require('babel-runtime/helpers/get');
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var _get3 = _interopRequireDefault(_get2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
-var _toArray2 = require('babel-runtime/helpers/toArray');
-
-var _toArray3 = _interopRequireDefault(_toArray2);
-
-var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
-
-var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 /**
  * Created by SAMSUNG on 01.06.2017.
@@ -315,7 +289,7 @@ console.log(comp2);
 console.log(rest);
 
 function logCompanies(_ref2) {
-  var _ref3 = (0, _slicedToArray3.default)(_ref2, 3),
+  var _ref3 = _slicedToArray(_ref2, 3),
       first = _ref3[0],
       second = _ref3[1],
       third = _ref3[2];
@@ -370,14 +344,14 @@ signUp(user);
 var points = [[4, 5], [10, 1], [0, 40]];
 
 var coords = points.map(function (_ref5) {
-  var _ref6 = (0, _slicedToArray3.default)(_ref5, 2),
+  var _ref6 = _slicedToArray(_ref5, 2),
       x = _ref6[0],
       y = _ref6[1];
 
   return { x: x, y: y };
 });
 
-var _points$ = (0, _slicedToArray3.default)(points[0], 2),
+var _points$ = _slicedToArray(points[0], 2),
     x = _points$[0],
     y = _points$[1];
 
@@ -386,14 +360,14 @@ console.log(coords);
 var numbers1 = [1, 2, 4, 6];
 
 function double2(numbersArr) {
-  var _numbersArr = (0, _toArray3.default)(numbersArr),
+  var _numbersArr = _toArray(numbersArr),
       number = _numbersArr[0],
       rest = _numbersArr.slice(1);
 
   if (!number) {
     return [];
   }
-  return [number * 2].concat((0, _toConsumableArray3.default)(double2(rest)));
+  return [number * 2].concat(_toConsumableArray(double2(rest)));
 }
 
 console.log(double2(numbers1));
@@ -437,12 +411,12 @@ var Car = function () {
         _ref7$title = _ref7.title,
         title = _ref7$title === undefined ? 'Toyota' : _ref7$title;
 
-    (0, _classCallCheck3.default)(this, Car);
+    _classCallCheck(this, Car);
 
     this.title = title;
   }
 
-  (0, _createClass3.default)(Car, [{
+  _createClass(Car, [{
     key: 'assignDriver',
     value: function assignDriver(driver) {
       this.driver = driver;
@@ -453,28 +427,30 @@ var Car = function () {
       return 'broom';
     }
   }]);
+
   return Car;
 }();
 
 var Toyota = function (_Car) {
-  (0, _inherits3.default)(Toyota, _Car);
+  _inherits(Toyota, _Car);
 
   function Toyota(options) {
-    (0, _classCallCheck3.default)(this, Toyota);
+    _classCallCheck(this, Toyota);
 
-    var _this2 = (0, _possibleConstructorReturn3.default)(this, (Toyota.__proto__ || (0, _getPrototypeOf2.default)(Toyota)).call(this, options));
+    var _this2 = _possibleConstructorReturn(this, (Toyota.__proto__ || Object.getPrototypeOf(Toyota)).call(this, options));
 
     _this2.color = options.color;
     return _this2;
   }
 
-  (0, _createClass3.default)(Toyota, [{
+  _createClass(Toyota, [{
     key: 'honk',
     value: function honk() {
-      (0, _get3.default)(Toyota.prototype.__proto__ || (0, _getPrototypeOf2.default)(Toyota.prototype), 'assignDriver', this).call(this, 'alex');
+      _get(Toyota.prototype.__proto__ || Object.getPrototypeOf(Toyota.prototype), 'assignDriver', this).call(this, 'alex');
       return 'beeep';
     }
   }]);
+
   return Toyota;
 }(Car);
 
@@ -494,7 +470,7 @@ var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
-  for (var _iterator = (0, _getIterator3.default)(colors3), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+  for (var _iterator = colors3[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
     var color = _step.value;
 
     console.log(color);
@@ -522,7 +498,7 @@ var _didIteratorError2 = false;
 var _iteratorError2 = undefined;
 
 try {
-  for (var _iterator2 = (0, _getIterator3.default)(numbers4), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+  for (var _iterator2 = numbers4[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
     var number = _step2.value;
 
     total4 += number;
@@ -550,3 +526,27 @@ console.log(total4);
 // }
 
 // console.log(numbers3());
+
+//promises
+
+var resolver = function resolver(resolve, reject) {
+  console.log('first statement in promise');
+  setTimeout(function () {
+    return reject('alex');
+  }, 3000);
+  console.log('second statement in promise');
+};
+
+// const promise = new Promise(resolver);
+//
+// promise
+//   .then((value) => console.log(`promise resolved with ${value}`))
+//   .then((value) => console.log('I was also ran'))
+//   .catch((value) => console.log('something went wrong', value));
+
+
+fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+  return response.json();
+}).then(function (data) {
+  return console.log(data);
+});
