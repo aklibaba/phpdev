@@ -545,8 +545,10 @@ var resolver = function resolver(resolve, reject) {
 //   .catch((value) => console.log('something went wrong', value));
 
 
-fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+fetch('https://jsonplaceholder.typicode.com/posts452').then(function (response) {
   return response.json();
 }).then(function (data) {
-  return console.log(data);
+  return console.log(data[1]);
+}).catch(function (error) {
+  return console.log('BAD', error);
 });

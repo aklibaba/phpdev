@@ -14,6 +14,11 @@ Order allow,deny
 Allow from all
 </Files>
 
+<Files "random.php">
+Order allow,deny
+Allow from all
+</Files>
+
 <Files "index.php">
 Order allow,deny
 Allow from all

@@ -451,6 +451,7 @@ const resolver = (resolve, reject) => {
 //   .catch((value) => console.log('something went wrong', value));
 
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(response => response.json())
-  .then(data => console.log(data) );
+fetch('https://jsonplaceholder.typicode.com/posts452')
+  .then(response => {return response.json() } )
+  .then(data => console.log(data[1]) )
+  .catch(error => console.log('BAD', error));
