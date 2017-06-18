@@ -10,6 +10,12 @@
 <body>
 
 <h1>ES6 Practice</h1>
-<script src="public/main.js"></script>
+<p class="number">first number 1</p>
+<div id="content">
+    <p>Here is some contet</p>
+</div>
+<input class="change-content" type="button" value="Place random number">
+<!--<script src="public/main.js"></script>-->
+<script src="ajax-practice.js"></script>
 </body>
 </html>
