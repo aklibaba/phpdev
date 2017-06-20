@@ -14,7 +14,18 @@
 <div id="content">
     <p>Here is some contet</p>
 </div>
-<input class="change-content" type="button" value="Place random number">
+<form action="">
+    <label for="cols">Columns</label>
+    <input type="number" name="cols" id="cols">
+    <label for="rows">Rows</label>
+    <input type="number" name="rows" id="rows">
+    <input class="change-content" type="button" value="Place random number">
+</form>
+
+<form action="" id="label-form">
+    <button>Get a message</button>
+</form>
+<div class="result">Result</div>
 <!--<script src="public/main.js"></script>-->
 <script src="ajax-practice.js"></script>
 </body>

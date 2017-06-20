@@ -16,6 +16,8 @@ function init(e) {
     exercises[exercise]();
   }
 
+  document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (e) => e.preventDefault()))
+
 }
 
 
@@ -28,20 +30,57 @@ const exercises = {
     }
   },
   exercise2() {
-    btn.addEventListener('click', getNum);
+    btn.addEventListener('click', startRequest);
     let request;
 
-    function getNum(e) {
+    function startRequest(e) {
       request = new XMLHttpRequest();
-      request.onreadystatechange = placeRandomNum;
+      request.onreadystatechange = insertResponse;
+      const rows = document.getElementById('rows').value;
+      const cols = document.getElementById('cols').value;
 
-      request.open('GET', 'random.php', true);
+      const url = "square-service.php";
+      request.open('POST', url, true);
+      request.setRequestHeader('Content-type', "application/x-www-form-urlencoded");
+      request.send(`rows=${rows}&cols=${cols}`);
+    }
+
+    function insertResponse() {
+      if (request.readyState === 4 && request.status === 200) {
+        div.innerHTML = request.responseText;
+      }
+    }
+  },
+  exercise3() {
+    document.querySelector('#label-form button').addEventListener('click', startRequest);
+
+    let request;
+
+    function startRequest(e) {
+      request = new XMLHttpRequest();
+      request.onreadystatechange = insertResponse;
+
+      const url = "bands.php";
+      request.open('GET', url, true);
       request.send();
     }
 
-    function placeRandomNum() {
+    function insertResponse() {
       if (request.readyState === 4 && request.status === 200) {
-        div.innerHTML = request.responseText;
+        const favourites = request.responseXML;
+        const bands = favourites.documentElement.getElementsByTagName('bands');
+
+        // console.log(bands);
+        let output = "<table>";
+        for (let band of bands) {
+          const bandName = band.querySelector('band').textContent;
+          const songName = band.querySelector('song').textContent;
+          let row = `<tr><td>${bandName}</td><td>${songName}</td></tr>`;
+          output += row;
+        }
+        output += "</table>";
+
+        document.querySelector('.result').innerHTML = output;
       }
     }
   }

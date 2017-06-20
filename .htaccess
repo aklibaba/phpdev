@@ -19,6 +19,22 @@ Order allow,deny
 Allow from all
 </Files>
 
+<Files "square-service.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "label.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "bands.php">
+Order allow,deny
+Allow from all
+</Files>
+
+
 <Files "index.php">
 Order allow,deny
 Allow from all
