@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="result">
+
+</div>
+<button onclick="makeCall()">Call JSON Object!</button>
+<script>
+  let request;
+  const resultDiv = document.getElementById('result');
+
+  function makeCall() {
+    request = new XMLHttpRequest();
+
+    request.onreadystatechange = insertResponse;
+    request.open('GET', 'jsonService.php', true);
+    request.send();
+  }
+
+  function insertResponse() {
+    if (request.readyState === 4 && request.status === 200) {
+
+      let json = request.responseText;
+      json = JSON.parse(json);
+      const firstName = json['firstName'];
+      const lastName = json['lastName'];
+      const company = json['company'];
+      const age = json['age'];
+      resultDiv.innerHTML = `First Name: ${firstName}<br>Last Name: ${lastName}</br> Company: ${company}</br>Age: ${age}`;
+    }
+  }
+</script>
+</body>
+</html>

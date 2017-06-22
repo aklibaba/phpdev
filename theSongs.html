@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="results">
+</div>
+<input name="song-title" type="text" placeholder="Title">
+<input name="song-artist" type="text" placeholder="Artist">
+<input name="song-rating" type="text" placeholder="Rating">
+<button id="submit-song">Submit new song</button>
+
+<button id="collect-songs">Collect Songs</button>
+
+<script>
+  const results = document.getElementById('results');
+  const submitSong = document.getElementById('submit-song');
+  let request;
+  let responseXML;
+
+  document.getElementById('collect-songs').addEventListener('click', connectToServer);
+  document.getElementById('submit-song').addEventListener('click', addNewSong);
+
+  function connectToServer(e) {
+    e.preventDefault();
+
+    request = new XMLHttpRequest();
+    request.onreadystatechange = loadData;
+    request.open('GET', 'songs.php', true);
+    request.send();
+
+  }
+
+  function loadData() {
+    if (request.readyState === 4 && request.status === 200) {
+      responseXML = request.responseXML;
+      displayData();
+    }
+  }
+
+  function displayData() {
+    let table = `
+    <table id="songs-table">
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Rating</th>
+        </tr>
+`;
+    const songs = responseXML.getElementsByTagName('song');
+    for (let song of songs) {
+      const title = song.querySelector('title').textContent;
+      const artist = song.querySelector('artist').textContent;
+      const rating = song.querySelector('rating').textContent;
+      table += `<tr><td>${title}</td><td>${artist}</td><td>${rating}</td></tr>`;
+    }
+    table += `</table>`;
+
+    results.innerHTML = table;
+  }
+
+  function addNewSong() {
+    if (!responseXML) {
+      return;
+    }
+
+    const songTitle = document.getElementsByName('song-title')[0].value;
+    const songArtist = document.getElementsByName('song-artist')[0].value;
+    const songRating = document.getElementsByName('song-rating')[0].value;
+
+    //create a new song node
+    const song = responseXML.createElement('song');
+
+    //populate the song node with it's inner nodes
+    song.appendChild(responseXML.createElement('title')).appendChild(responseXML.createTextNode(songTitle));
+    song.appendChild(responseXML.createElement('artist')).appendChild(responseXML.createTextNode(songArtist));
+    song.appendChild(responseXML.createElement('rating')).appendChild(responseXML.createTextNode(songRating));
+
+    //connect the song node to the XML root
+    responseXML.children[0].appendChild(song);
+
+    displayData();
+
+  }
+
+
+</script>
+</body>
+
+</html>

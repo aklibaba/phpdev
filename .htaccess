@@ -14,15 +14,41 @@ Order allow,deny
 Allow from all
 </Files>
 
+<Files "jsonService.php">
+Order allow,deny
+Allow from all
+</Files>
+
 <Files "random.php">
 Order allow,deny
 Allow from all
 </Files>
 
-<Files "square_service.php">
+<Files "square-service.php">
 Order allow,deny
 Allow from all
 </Files>
+
+<Files "label.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "bands.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "airports.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "songs.php">
+Order allow,deny
+Allow from all
+</Files>
+
 
 <Files "index.php">
 Order allow,deny
