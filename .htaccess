@@ -14,6 +14,11 @@ Order allow,deny
 Allow from all
 </Files>
 
+<Files "jsonService.php">
+Order allow,deny
+Allow from all
+</Files>
+
 <Files "random.php">
 Order allow,deny
 Allow from all
@@ -30,6 +35,16 @@ Allow from all
 </Files>
 
 <Files "bands.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "airports.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "songs.php">
 Order allow,deny
 Allow from all
 </Files>

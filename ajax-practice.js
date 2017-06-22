@@ -71,7 +71,7 @@ const exercises = {
         const bands = favourites.documentElement.getElementsByTagName('bands');
 
         // console.log(bands);
-        let output = "<table>";
+        let output = "<table><tr><th>Band</th><th>Song</th></tr>";
         for (let band of bands) {
           const bandName = band.querySelector('band').textContent;
           const songName = band.querySelector('song').textContent;
