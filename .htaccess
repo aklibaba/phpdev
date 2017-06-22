@@ -19,6 +19,11 @@ Order allow,deny
 Allow from all
 </Files>
 
+<Files "square_service.php">
+Order allow,deny
+Allow from all
+</Files>
+
 <Files "index.php">
 Order allow,deny
 Allow from all
