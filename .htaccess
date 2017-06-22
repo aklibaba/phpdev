@@ -54,3 +54,8 @@ Allow from all
 Order allow,deny
 Allow from all
 </Files>
+
+<Files "index2.php">
+Order allow,deny
+Allow from all
+</Files>
