@@ -16,7 +16,7 @@ function init(e) {
     exercises[exercise]();
   }
 
-  document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (e) => e.preventDefault()))
+  // document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (e) => e.preventDefault()))
 
 }
 
@@ -39,7 +39,7 @@ const exercises = {
       const rows = document.getElementById('rows').value;
       const cols = document.getElementById('cols').value;
 
-      const url = "square-service.php";
+      const url = "square-service.php?beers=4";
       request.open('POST', url, true);
       request.setRequestHeader('Content-type', "application/x-www-form-urlencoded");
       request.send(`rows=${rows}&cols=${cols}`);

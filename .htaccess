@@ -19,6 +19,12 @@ Order allow,deny
 Allow from all
 </Files>
 
+
+<Files "receivesJSON.php">
+Order allow,deny
+Allow from all
+</Files>
+
 <Files "random.php">
 Order allow,deny
 Allow from all

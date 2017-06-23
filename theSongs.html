@@ -49,6 +49,7 @@
             <th>Rating</th>
         </tr>
 `;
+    debugger;
     const songs = responseXML.getElementsByTagName('song');
     for (let song of songs) {
       const title = song.querySelector('title').textContent;
