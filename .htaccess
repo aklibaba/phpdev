@@ -55,6 +55,31 @@ Order allow,deny
 Allow from all
 </Files>
 
+<Files "sampleJson.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "products.xml">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "products_style.xml">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "poem.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "poem.html">
+Order allow,deny
+Allow from all
+</Files>
+
 
 <Files "index.php">
 Order allow,deny

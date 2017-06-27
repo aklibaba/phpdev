@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html lang="en">
+<head>
+    <title>Poem</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(
+            function()
+            {
+                $("#getPoem").click(
+                  function() {
+                    $.ajax(
+                      {
+                        url: 'poem.php',
+                        method: 'get',
+                        success (result) {
+                          $('#result').html(result);
+                        }
+                      }
+                    )
+                  }
+                );
+            });
+    </script>
+</head>
+<body>
+    <div id="result"></div>
+    <input type="button" id="getPoem" value="Show Poem" />
+</body>
+</html>
