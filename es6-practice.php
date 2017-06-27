@@ -34,5 +34,6 @@
 <div class="result">Result</div>
 <!--<script src="public/main.js"></script>-->
 <script src="ajax-practice.js"></script>
+<script src="polyfills.js"></script>
 </body>
 </html>
