@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd"
+        >
+<html lang="en">
+<head>
+    <title>JSON Object Builder</title>
+    <script language="javascript" type="text/javascript">
+
+      let request;
+      let jsonObject;
+
+      function createObject() {
+        const song = document.getElementById('song').value;
+        const artist = document.getElementById('artist').value;
+        const year = document.getElementById('year').value;
+        const rating = document.getElementById('rating').value;
+
+
+        jsonObject = {
+          "song": song,
+          "artist": artist,
+          "year": year,
+          "rating": rating
+        };
+
+        sendJson(JSON.stringify(jsonObject));
+
+      }
+
+      function sendJson(json) {
+        request = new XMLHttpRequest();
+
+        request.onreadystatechange = receiveResponse;
+
+        request.open("POST", ("receivesJSON.php"), true);
+        request.setRequestHeader('Content-type', "application/json");
+        request.send(`${json}`);
+      }
+
+      function receiveResponse() {
+        if (request.readyState == 4 && request.status == 200) {
+
+//          console.log(JSON.parse(request.responseText));
+          document.getElementById("response").innerHTML = request.responseText;
+        }
+      }
+
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Song</td>
+        <td><input type="text" id="song"/></td>
+    </tr>
+    <tr>
+        <td>Artist</td>
+        <td><input type="text" id="artist"/></td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td><input type="text" id="year"/></td>
+    </tr>
+    <tr>
+        <td>Rating</td>
+        <td><input type="text" id="rating"/></td>
+    </tr>
+</table>
+<input type="button" value="Create Object" onclick="createObject()"/>
+<div id="response"></div>
+</body>
+</html>

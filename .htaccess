@@ -19,6 +19,12 @@ Order allow,deny
 Allow from all
 </Files>
 
+
+<Files "receivesJSON.php">
+Order allow,deny
+Allow from all
+</Files>
+
 <Files "random.php">
 Order allow,deny
 Allow from all
@@ -45,6 +51,31 @@ Allow from all
 </Files>
 
 <Files "songs.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "sampleJson.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "products.xml">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "products_style.xml">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "poem.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "poem.html">
 Order allow,deny
 Allow from all
 </Files>

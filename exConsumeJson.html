@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="result">
+
+</div>
+<button onclick="makeCall()">Call JSON Object!</button>
+<script>
+  let request;
+  let catalog;
+  function makeCall() {
+    request = new XMLHttpRequest();
+    request.onreadystatechange = fetchResults;
+
+    request.open('GET', 'sampleJson.php', true);
+    request.send();
+  }
+
+  function fetchResults() {
+    if (request.readyState === 4 && request.status === 200) {
+
+      catalog = JSON.parse(request.responseText)['catalog'];
+      displayResults();
+    }
+  }
+
+  function displayResults() {
+
+    let txt = "<table><tr><th>Artist</th><th>Rating</th><th>Title</th></tr>";
+    catalog['songs'].forEach((song) => {
+      txt +=
+        `<tr>
+            <td>${song.artist}</td>
+            <td>${song.rating}</td>
+            <td>${song.title}</td>
+        </tr>`
+    });
+    txt += `
+        </table>
+        <div class="inputs-wrap">
+            <input name="artist" type="text" placeholder="Artist">
+            <input name="rating" type="text" placeholder="Rating">
+            <input name="title" type="text" placeholder="Song">
+        <button onclick="addArtist()">Add Artist</button>
+        </div>
+        `;
+    document.getElementById('result').innerHTML = txt;
+  }
+
+
+  function addArtist() {
+    const inputs = document.querySelector('.inputs-wrap');
+    const artist = inputs.querySelector('[name=artist]').value;
+    const rating = inputs.querySelector('[name=rating]').value;
+    const title = inputs.querySelector('[name=title]').value;
+
+    debugger;
+
+    const newSong = {
+      artist,
+      rating,
+      title
+    };
+
+    catalog['songs'].push(newSong);
+
+    displayResults();
+  }
+
+</script>
+
+</body>
+</html>

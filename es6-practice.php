@@ -22,6 +22,12 @@
     <input class="change-content" type="button" value="Place random number">
 </form>
 
+
+<form action="square-service.php" method="post">
+    <input type="text" name="alex">
+    <button type="submit">Submit</button>
+</form>
+
 <form action="" id="label-form">
     <button>Get a message</button>
 </form>
