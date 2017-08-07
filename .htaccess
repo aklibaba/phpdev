@@ -64,3 +64,18 @@ Allow from all
 Order allow,deny
 Allow from all
 </Files>
+
+<Files "csp.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "csp_report_parser.php">
+Order allow,deny
+Allow from all
+</Files>
+
+<Files "csp.txt">
+Order allow,deny
+Allow from all
+</Files>

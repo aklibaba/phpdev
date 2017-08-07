@@ -306,7 +306,7 @@ const user = {
   city: 'Warsaw'
 };
 
-signUp(user);
+// signUp(user);
 
 const points = [
   [4, 5],
@@ -320,6 +320,8 @@ const coords = points.map(([x, y]) => {
 });
 
 const [[x, y]] = points;
+console.log('x', x);
+console.log(y);
 console.log(coords);
 
 const numbers1 = [1, 2, 4, 6];
